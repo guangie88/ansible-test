@@ -1,0 +1,15 @@
+---
+true_val_1: true
+false_val_1: false
+
+true_val_2: "true"
+false_val_2: "false"
+
+true_val_3: 'true'
+false_val_3: 'false'
+
+true_val_4: '"true"'
+false_val_4: '"false"'
+
+true_val_5: !!str true
+false_val_5: !!str false

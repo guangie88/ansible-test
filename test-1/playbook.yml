@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Include vars
+    include_vars:
+      file: ./test-vars.yml
+      name: values
+  - name: Set facts from vars
+    set_fact:
+      v_true_val_1: "{{ values.true_val_1 }}"
+      v_true_val_2: "{{ values.true_val_2 }}"
+      v_true_val_3: "{{ values.true_val_3 }}"
+      v_true_val_4: "{{ values.true_val_4 }}"
+      v_true_val_5: "{{ values.true_val_5 }}"
+      v_false_val_1: "{{ values.false_val_1 }}"
+      v_false_val_2: "{{ values.false_val_2 }}"
+      v_false_val_3: "{{ values.false_val_3 }}"
+      v_false_val_4: "{{ values.false_val_4 }}"
+      v_false_val_5: "{{ values.false_val_5 }}"
+  - name: Apply Jinja2 template
+    template:
+      src: ./test.yml.j2
+      dest: ./test.yml
