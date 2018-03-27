@@ -1,2 +1,5 @@
 *.retry
+file-*
 test.yml
+test-*.yml
+dst-file-*

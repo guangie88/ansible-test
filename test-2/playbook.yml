@@ -1,0 +1,49 @@
+---
+  - hosts: localhost
+    tasks:
+    - name: Touch a file without chmod specs
+      file:
+        path: ./file-1
+        state: touch
+    - name: Touch a file with relative chmod specs
+      file:
+        path: ./file-2
+        state: touch
+        mode: a+r
+    - name: Touch a file with absolute chmod specs
+      file:
+        path: ./file-3
+        state: touch
+        mode: 0744
+    - name: Copy file without chmod specs
+      copy:
+        src: ./src-file
+        dest: ./dst-file-1
+    - name: Copy file with relative chmod specs
+      copy:
+        src: ./src-file
+        dest: ./dst-file-2
+        mode: a+r
+    - name: Copy file with absolute chmod specs
+      copy:
+        src: ./src-file
+        dest: ./dst-file-3
+        mode: 0744
+    - name: Include vars
+      include_vars:
+        file: ./test-vars.yml
+        name: values
+    - name: Apply Jinja2 template without chmod specs
+      template:
+        src: ./test.yml.j2
+        dest: ./test-1.yml
+    - name: Apply Jinja2 template with relative chmod specs
+      template:
+        src: ./test.yml.j2
+        dest: ./test-2.yml
+        mode: a+r
+    - name: Apply Jinja2 template with absolute chmod specs
+      template:
+        src: ./test.yml.j2
+        dest: ./test-3.yml
+        mode: 0744

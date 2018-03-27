@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 cd test-1
-ansible-playbook playbook.yml
+./run.sh
+cd ..
+
+cd test-2
+./run.sh
 cd ..
