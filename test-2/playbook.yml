@@ -36,14 +36,14 @@
     - name: Apply Jinja2 template without chmod specs
       template:
         src: ./test.yml.j2
-        dest: ./test-1.yml
+        dest: ./applied-1.yml
     - name: Apply Jinja2 template with relative chmod specs
       template:
         src: ./test.yml.j2
-        dest: ./test-2.yml
+        dest: ./applied-2.yml
         mode: a+r
     - name: Apply Jinja2 template with absolute chmod specs
       template:
         src: ./test.yml.j2
-        dest: ./test-3.yml
+        dest: ./applied-3.yml
         mode: 0744
